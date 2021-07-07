@@ -694,233 +694,233 @@ function submission() {
 
     /* Your test javascript code if any needs to be added here within the brackets */
     var c = `<script type="text/javascript">
-// function to send analytics data
-function sendData(data) {
-s.linkTrackVars="eVar` + getEVar + `,events";
-s.events="event` + getEvent + `";
-s.eVar` + parseInt(getEVar) + ` = data;
-s.tl(this,'o');
-}
-holdAll();
-function holdAll(){
-function allForOne(){
-var product = JSON.parse('$` + `{user.cart_check}'),
-pCheck = 0,
-pName = product[0].name,
-ptargetThumbnail = product[0].imgs,
-ctaCopy = "` + jQuery(".ca-product-cta").contents()[0].textContent.trim() + `",
-ctaLink = product[0].cartURL;
+        // function to send analytics data
+        function sendData(data) {
+        s.linkTrackVars="eVar` + getEVar + `,events";
+        s.events="event` + getEvent + `";
+        s.eVar` + parseInt(getEVar) + ` = data;
+        s.tl(this,'o');
+        }
+        holdAll();
+        function holdAll(){
+        function allForOne(){
+        var product = JSON.parse('$` + `{user.cart_check}'),
+        pCheck = 0,
+        pName = product[0].name,
+        ptargetThumbnail = product[0].imgs,
+        ctaCopy = "` + jQuery(".ca-product-cta").contents()[0].textContent.trim() + `",
+        ctaLink = product[0].cartURL;
 
-pName = pName.replace('_','"');
+        pName = pName.replace('_','"');
 
-for(var a = 0; a < product.length; a++){
-if(product[a].id.indexOf("SM-G988") > -1 || product[a].id.indexOf("SM-G986") > -1 || product[a].id.indexOf("SM-G981") > -1 || product[a].id.indexOf("SM-G980") > -1){
-pCheck = a;
-}
-if(product[a].id.indexOf("SM-G988") > -1){
-pName = "Galaxy S20 Ultra 5G";
-}else if(product[a].id.indexOf("SM-G986") > -1){
-pName = "Galaxy S20+ 5G";
-}else if(product[a].id.indexOf("SM-G981") > -1){
-pName = "Galaxy S20 5G";
-}else if(product[a].id.indexOf("SM-G980") > -1){
-pName = "Galaxy S20";
-}
-}
+        for(var a = 0; a < product.length; a++){
+        if(product[a].id.indexOf("SM-G988") > -1 || product[a].id.indexOf("SM-G986") > -1 || product[a].id.indexOf("SM-G981") > -1 || product[a].id.indexOf("SM-G980") > -1){
+        pCheck = a;
+        }
+        if(product[a].id.indexOf("SM-G988") > -1){
+        pName = "Galaxy S20 Ultra 5G";
+        }else if(product[a].id.indexOf("SM-G986") > -1){
+        pName = "Galaxy S20+ 5G";
+        }else if(product[a].id.indexOf("SM-G981") > -1){
+        pName = "Galaxy S20 5G";
+        }else if(product[a].id.indexOf("SM-G980") > -1){
+        pName = "Galaxy S20";
+        }
+        }
 
-/* Price cleanup */
-var temp = Math.round(product[pCheck].price).toString(),
-position,
-dot = ".",
-space = " ",
-comma = ",",
-output;
+        /* Price cleanup */
+        var temp = Math.round(product[pCheck].price).toString(),
+        position,
+        dot = ".",
+        space = " ",
+        comma = ",",
+        output;
 
-//SEI
-if(product[pCheck].price.indexOf("€") < 0 && (window.location.pathname.indexOf("/it/") > -1 || window.location.pathname.indexOf("/es/") > -1)){
-if(temp.length > 3){
-position = 1;
-output = [temp.slice(0, position), dot, temp.slice(position)].join('');
-product[pCheck].price = output+", 00 €";
-}else if(temp.length < 4){
-product[pCheck].price = Math.round(product[pCheck].price)+", 00 €";
-}
-}
-//SENA (se/dk/no)
-if(product[pCheck].price.indexOf("kr") < 0 && (window.location.pathname.indexOf("/se/") > -1 || window.location.pathname.indexOf("/dk/") > -1 || window.location.pathname.indexOf("/no/") > -1)){
-if(temp.length > 4){
-position = 2;
-}else if(temp.length > 3){
-position = 1;
-}
-output = [temp.slice(0, position), space, temp.slice(position)].join('');
-product[pCheck].price = output+" kr";
-}
-//SENA (fi)
-if(product[pCheck].price.indexOf("€") < 0 && window.location.pathname.indexOf("/fi/") > -1){
-if(temp.length > 3){
-position = 1;
-}else{
-position = 0;
-}
-output = [temp.slice(0, position), space, temp.slice(position)].join('');
-product[pCheck].price = output+", 00 €";
-}
-//UAE
-if(temp.indexOf("AED") < 0 && window.location.pathname.indexOf("/ae/") > -1){
-if(temp.length > 3){
-position = 1;
-output = [temp.slice(0, position), comma, temp.slice(position)].join('');
-product[pCheck].price = output+".00 AED";
-}else if(temp.length < 4){
-product[pCheck].price = Math.round(product[pCheck].price)+", 00 €";
-}
-}
+        //SEI
+        if(product[pCheck].price.indexOf("€") < 0 && (window.location.pathname.indexOf("/it/") > -1 || window.location.pathname.indexOf("/es/") > -1)){
+        if(temp.length > 3){
+        position = 1;
+        output = [temp.slice(0, position), dot, temp.slice(position)].join('');
+        product[pCheck].price = output+", 00 €";
+        }else if(temp.length < 4){
+        product[pCheck].price = Math.round(product[pCheck].price)+", 00 €";
+        }
+        }
+        //SENA (se/dk/no)
+        if(product[pCheck].price.indexOf("kr") < 0 && (window.location.pathname.indexOf("/se/") > -1 || window.location.pathname.indexOf("/dk/") > -1 || window.location.pathname.indexOf("/no/") > -1)){
+        if(temp.length > 4){
+        position = 2;
+        }else if(temp.length > 3){
+        position = 1;
+        }
+        output = [temp.slice(0, position), space, temp.slice(position)].join('');
+        product[pCheck].price = output+" kr";
+        }
+        //SENA (fi)
+        if(product[pCheck].price.indexOf("€") < 0 && window.location.pathname.indexOf("/fi/") > -1){
+        if(temp.length > 3){
+        position = 1;
+        }else{
+        position = 0;
+        }
+        output = [temp.slice(0, position), space, temp.slice(position)].join('');
+        product[pCheck].price = output+", 00 €";
+        }
+        //UAE
+        if(temp.indexOf("AED") < 0 && window.location.pathname.indexOf("/ae/") > -1){
+        if(temp.length > 3){
+        position = 1;
+        output = [temp.slice(0, position), comma, temp.slice(position)].join('');
+        product[pCheck].price = output+".00 AED";
+        }else if(temp.length < 4){
+        product[pCheck].price = Math.round(product[pCheck].price)+", 00 €";
+        }
+        }
 
-var a = '` + cleanHTML.trim().replace(/\s+/g, ' ') + `';
+        var a = '` + cleanHTML.trim().replace(/\s+/g, ' ') + `';
 
-jQuery(a).prependTo('#content');
+        jQuery(a).prependTo('#content');
 
-/* Click Events */
-jQuery(".ca-product-cta").on("click", function(){
-sendData("` + getEVarDesc + `");
-});
-jQuery(".ca-close").on("click", function(){
-//jQuery(".ca-container").remove();
-jQuery(".ca-container").addClass("removed");
-setTimeout(function(){jQuery(".ca-container").remove()},500);
-sendData("` + getEVarDescClose + `");
-});
+        /* Click Events */
+        jQuery(".ca-product-cta").on("click", function(){
+        sendData("` + getEVarDesc + `");
+        });
+        jQuery(".ca-close").on("click", function(){
+        //jQuery(".ca-container").remove();
+        jQuery(".ca-container").addClass("removed");
+        setTimeout(function(){jQuery(".ca-container").remove()},500);
+        sendData("` + getEVarDescClose + `");
+        });
 
-/* Responsive Controls */
-var mql = window.matchMedia("(max-width: 768px)");
-mql.addListener(function(e){
-if(e.matches){
-/* mobile */
-mobile();
-}else{
-/* desktop */
-desktop();
-}
-});
+        /* Responsive Controls */
+        var mql = window.matchMedia("(max-width: 768px)");
+        mql.addListener(function(e){
+        if(e.matches){
+        /* mobile */
+        mobile();
+        }else{
+        /* desktop */
+        desktop();
+        }
+        });
 
-if(window.innerWidth <= 768){
-/* mobile */
-mobile();
-}else{
-/* desktop */
-desktop();
-};
+        if(window.innerWidth <= 768){
+        /* mobile */
+        mobile();
+        }else{
+        /* desktop */
+        desktop();
+        };
 
-var pznSmallImg = document.querySelector(".ca-product-img");
-if(product[0].imgs==undefined){
+        var pznSmallImg = document.querySelector(".ca-product-img");
+        if(product[0].imgs==undefined){
 
-// replace error Images --------------------------------------
-var pznMob = [
-/* Z Flip*/ ['SM-F700','https://images.samsung.com/is/image/samsung/uk/galaxy-s20/gallery/uk-galaxy-z-flip-sm-f700-sm-f700fzkdbtu-frontmirrorblack-209048059?$PD_GALLERY_PNG$'],
-/* Fold */ ['SM-F900','https://images.samsung.com/is/image/samsung/uk-galaxy-fold-sm-f907-5g-sm-f907bzkabtu-frontblack-thumb-183263244?$PF_PRD_PNG$'],
-/*------------------------------------------------------------------*/
-/* S20 */ ['SM-G981','SM-G980','https://images.samsung.com/is/image/samsung/uk-galaxy-s20-sm-g981-5g-sm-g981bzadeua-frontcosmicgray-thumb-214107767?$PF_PRD_PNG$'],
-/* S20 Plus */ ['SM-G986','SM-G985','https://images.samsung.com/is/image/samsung/uk-galaxy-s20-plus-sm-g986-5g-sm-g986bzadeua-frontcosmicgray-thumb-214107393?$PF_PRD_PNG$'],
-/* S20 Ultra*/ ['SM-G988','https://images.samsung.com/is/image/samsung/uk-galaxy-s20-ultra-sm-g988-5g-sm-g988bzkdeua-frontcosmicblack-thumb-214107294?$PF_PRD_PNG$'],
-/*------------------------------------------------------------------*/
-/* S10 Lite */ ['SM-G770','https://images.samsung.com/is/image/samsung/uk-galaxy-s10-lite-sm-g770-sm-g770fzkdbtu-frontprismblack-thumb-206094093?$PF_PRD_PNG$'],
-/* S10 5G */ ['SM-G977','https://images.samsung.com/is/image/samsung/uk-galaxy-s10-sm-g977-5g-sm-g977bzaabtu-thumb-185487623?$PF_PRD_PNG$'],
-/* S10 Plus */ ['SM-G975','https://images.samsung.com/is/image/samsung/uk-galaxy-s10plus-sm-g975-hybrid-sim-sm-g975fzgdbtu-frontprismgreen-thumb-146852126?$PF_PRD_PNG$'],
-/* S10 */ ['SM-G973','https://images.samsung.com/is/image/samsung/uk-galaxy-s10-sm-g973-hybrid-sim-sm-g973fzbdbtu-frontprismblue-thumb-156199775?$PF_PRD_PNG$'],
-/* S10E */ ['SM-G970','https://images.samsung.com/is/image/samsung/uk-galaxy-s10e-sm-g970-hybrid-sim-sm-g970fzsdbtu-frontprismsilver-thumb-188191346?$PF_PRD_PNG$'],
-/*------------------------------------------------------------------*/
-/* Note10 Lite */ ['SM-N770','https://images.samsung.com/is/image/samsung/uk-galaxy-note10-lite-sm-n770-sm-n770fzkdbtu-frontaurablack-thumb-206093831?$PF_PRD_PNG$'],
-/* Note10 Plus 5G */ ['SM-N976','https://images.samsung.com/is/image/samsung/uk-galaxy-note10-plus-256gb-sm-n976-5g-sm-n976bzsabtu-frontauraglow-thumb-177815230?$PF_PRD_PNG$'],
-/* Note10 Plus */ ['SM-N975','https://images.samsung.com/is/image/samsung/uk-galaxy-note10-plus-sm-n975-sm-n975fzsdbtu-frontauraglow-thumb-177815055?$PF_PRD_PNG$'],
-/* Note10 */ ['SM-N970','https://images.samsung.com/is/image/samsung/uk-galaxy-note10-sm-n970-sm-n970fzkdbtu-frontaurablack-thumb-177814907?$PF_PRD_PNG$'],
-/* Note9 */ ['SM-N960','https://images.samsung.com/is/image/samsung/uk-galaxy-note9-sm-n960-single-sim-sm-n960fzkabtu-frontblack-thumb-117163147?$PF_PRD_PNG$'],
-/*------------------------------------------------------------------*/
-/* A90 5G */ ['SM-A908','https://images.samsung.com/is/image/samsung/uk-galaxy-a90-5g-sm-a908bzkabtu-black-thumb-224635430?$PF_PRD_PNG$'],
-/* A80 */ ['SM-A805','https://images.samsung.com/is/image/samsung/uk-galaxy-a80-sm-a805fzkdbtu-frontblack-thumb-181284726?$PF_PRD_PNG$'],
-/* A71 */ ['SM-A715','https://images.samsung.com/is/image/samsung/uk-galaxy-a71-sm-a715fzkubtu-front-thumb-206094634?$PF_PRD_PNG$'],
-/* A70 */ ['SM-A705','https://images.samsung.com/is/image/samsung/fi-galaxy-a705-a70-sm-a705fzkunee-frontblack-thumb-166200275?$PF_PRD_PNG$'],
-/* A51 */ ['SM-A515','https://images.samsung.com/is/image/samsung/uk-galaxy-a51-sm-a515fzkveua-front-thumb-206094240?$PF_PRD_PNG$'],
-/* A50 */ ['SM-A505','https://images.samsung.com/is/image/samsung/fi-galaxy-a505-a50-sm-a505fzksnee-frontblack-thumb-166002658?$PF_PRD_PNG$'],
-/* A41 */ ['SM-A415','https://images.samsung.com/is/image/samsung/uk-galaxy-a41-sm-a415fzkdeua-front-246140763?$PD_GALLERY_PNG$'],
-/* A40 */ ['SM-A405','https://images.samsung.com/is/image/samsung/uk-galaxy-a40-sm-a405fzkdbtu-frontblack-thumb-181275569?$PF_PRD_PNG$'],
-/* A30S */ ['SM-A307','https://images.samsung.com/is/image/samsung/es-galaxy-a30s-sm-a307fzkvphe-front-thumb-182236947?$PF_PRD_PNG$'],
-/* A30 */ ['SM-A305','https://images.samsung.com/is/image/samsung/levant-galaxy-a30-a305-sm-a305fzkfmid-frontblack-151867641?$PD_GALLERY_L_JPG$'],
-/* A20E */ ['SM-A202','https://images.samsung.com/is/image/samsung/uk-galaxy-a20e-sm-a202fzkdbtu-frontblack-thumb-181275712?$PF_PRD_PNG$'],
-/* A10 */ ['SM-A105','https://images.samsung.com/is/image/samsung/it-galaxy-a10-a105-sm-a105fzbuitv-frontblue-thumb-196116138?$PF_PRD_PNG$'],
-/* A6 */ ['SM-A600','https://images.samsung.com/is/image/samsung/it-galaxy-a6-a600fd-sm-a600fzknitv-frontblack-thumb-104810266?$PF_PRD_PNG$'],
-/*------------------------------------------------------------------*/
-/* M21 */ ['SM-M215','https://images.samsung.com/is/image/samsung/nl-galaxy-m21-sm-m215fzkuphn-frontblack-232410414?$PD_GALLERY_PNG$'],
-/* M20 */ ['SM-M205','https://images.samsung.com/is/image/samsung/it-galalxy-m20-m205-sm-m205fdawitv-frontebonyblack-thumb-151123424?$PF_PRD_PNG$'],
-/* M30 */ ['SM-M307','https://images.samsung.com/is/image/samsung/it-galaxy-m30s-m307-sm-m307fzkuitv-frontblack-thumb-184095908?$PF_PRD_PNG$'],
-/*------------------------------------------------------------------*/
-/* Tab S6 LTE 10.5*/ ['SM-T865','https://images.samsung.com/is/image/samsung/uk-galaxy-tab-s6-4g-128gb-sm-t865nzaabtu-frontgray-thumb-177241292?$PF_PRD_PNG$'],
-/* Tab S6 WIFI 10.5*/ ['SM-T860','https://images.samsung.com/is/image/samsung/uk-galaxy-tab-s6-128gb-sm-t860nzaabtu-frontgray-thumb-177241138?$PF_PRD_PNG$'],
-/* Tab S6 Lite LTE 10.4*/ ['SM-P615','https://images.samsung.com/is/image/samsung/uk-galaxy-tab-s6-lite-4g-sm-p615nzaabtu-frontgray-thumb-229910808?$PF_PRD_PNG$'],
-/* Tab S6 Lite WIFI 10.4*/ ['SM-P610','https://images.samsung.com/is/image/samsung/uk-galaxy-tab-s6-lite-sm-p610nzbabtu-frontblue-thumb-229592181?$PF_PRD_PNG$'],
-/* Tab S5E LTE 10.5*/ ['SM-T725','https://images.samsung.com/is/image/samsung/uk-galaxy-tabs5e-4g-sm-t725nzkabtu-frontblack-thumb-144907370?$PF_PRD_PNG$'],
-/* Tab S5E WIFI 10.5*/ ['SM-T720','https://images.samsung.com/is/image/samsung/uk-galaxy-tabs5e-sm-t720nzkabtu-frontblack-thumb-144907277?$PF_PRD_PNG$'],
-/* Tab S4 WIFI 10.5*/ ['SM-T835','https://images.samsung.com/is/image/samsung/uk-galaxy-tabs4-t835-sm-t835nzkabtu-black-thumb-Black-118863026?$PF_PRD_PNG$'],
-/* Tab S4 LTE 10.5*/ ['SM-T830','https://images.samsung.com/is/image/samsung/uk-galaxy-tabs4-t830-sm-t830nzkabtu-black-thumb-Black-118858351?$PF_PRD_PNG$'],
-/* Tab A WIFI 8*/ ['SM-T290','https://images.samsung.com/is/image/samsung/it-galaxy-tab-a-t290-sm-t290nzkaitv-frontblack-thumb-175821163?$PF_PRD_PNG$'],
-/* Tab A LTE 8*/ ['SM-T295','https://images.samsung.com/is/image/samsung/it-galaxy-taba-t295-sm-t295nzkaitv-frontblack-thumb-186507205?$PF_PRD_PNG$'],
-/* Tab A WIFI 10.5*/ ['SM-T590','https://images.samsung.com/is/image/samsung/it-galaxy-taba-t590-sm-t590nzkaitv-frontblack-thumb-193154350?$PF_PRD_PNG$'],
-/* Tab A LTE 10.5*/ ['SM-T595','https://images.samsung.com/is/image/samsung/it-galaxy-taba-t595-sm-t595nzkaitv-frontblack-thumb-193164324?$PF_PRD_PNG$'],
-/* Tab A WIFI 10.1*/ ['SM-T510','https://images.samsung.com/is/image/samsung/it-galaxy-tab-a-t510-sm-t510nzkditv-frontblack-thumb-171730530?$PF_PRD_PNG$'],
-/* Tab A LTE 10.1*/ ['SM-T515','https://images.samsung.com/is/image/samsung/it-galaxy-tab-a-t515-sm-t515nzkditv-frontblack-thumb-196085935?$PF_PRD_PNG$'],
-/* Tab Active2 LTE 9.7*/ ['SM-T819','SM-T813','https://images.samsung.com/is/image/samsung/es-galaxy-tab-s2-9-7-t819-sm-t819nzkephe-000000001-front-black-thumb?$PF_PRD_PNG$'],
-/*------------------------------------------------------------------*/
-/* GW Active2 BT 40Black */ ['SM-R830','https://images.samsung.com/is/image/samsung/es-galaxy-watch-active-r830nz-sm-r830nzkaphe-frontblack-thumb-216635017?$PF_PRD_PNG$'],
-/* GW Active2 BT 40Silver */ ['SM-R835','https://images.samsung.com/is/image/samsung/es-galaxy-watch-active2-r835fs-sm-r835fssaphe-frontsilver-thumb-227140240?$PF_PRD_PNG$'],
-/* GW Active2 BT 44Black */ ['SM-R820','https://images.samsung.com/is/image/samsung/es-galaxy-watch-active2-r820ns-sm-r820nskaphe-frontblack-thumb-214904920?$PF_PRD_PNG$'],
-/* Galaxy Buds Plus */ ['SM-R175','https://images.samsung.com/is/image/samsung/nl/galaxy-s20/gallery/nl-galaxy-budsplus-sm-r175nzwaeu2-frontwhite-209031341?$PD_GALLERY_PNG$'],
-/* Galaxy Buds */ ['SM-R170','https://images.samsung.com/is/image/samsung/es-galaxy-buds-r170-sm-r170nzkaphe-frontblack-thumb-145993846?$PF_PRD_PNG$'],
-/* Galaxy Fit */ ['SM-R370','https://images.samsung.com/is/image/samsung/es-galaxy-fit-sm-r370nzkaphe-frontblack-thumb-167504925?$PF_PRD_PNG$'],
-/* Galaxy Fit e */ ['SM-R375','https://images.samsung.com/is/image/samsung/es-galaxy-fite-sm-r375nzkaphe-frontblack-thumb-167568895?$PF_PRD_PNG$'],
-/* Galaxy Watch 42Black */ ['SM-R815','https://images.samsung.com/is/image/samsung/es-galaxy-watch-r815-sm-r815fzkaamo-frontblack-thumb-115084975?$PF_PRD_PNG$'],
-/* Galaxy Watch 46mm */ ['SM-R800','https://images.samsung.com/is/image/samsung/nl-galaxy-watch-r800-sm-r800nzsaphn-frontsilver-111729415?$PD_GALLERY_PNG$'],
-/* Galaxy Watch 46 */ ['SM-R805','https://images.samsung.com/is/image/samsung/es-galaxy-watch-r805-sm-r805fzsaphe-frontsilver-thumb-142665942?$PF_PRD_PNG$'],
-/* Galaxy Watch 42 */ ['SM-R810','https://images.samsung.com/is/image/samsung/es-galaxy-watch-r810-sm-r810nzkaphe-frontblack-thumb-111698263?$PF_PRD_PNG$'],
-/* Gear VR */ ['SM-R325','https://images.samsung.com/is/image/samsung/es-gear-vr-sm-r324-sm-r325nzvcphe-frontblack-thumb-119928670?$PF_PRD_PNG$'],
-/* Gear Fit2 Pro */ ['SM-R365','https://images.samsung.com/is/image/samsung/es-gear-fit2-pro-l-sm-r365-sm-r365nzkaphe-frontblack-thumb-73002430?$PF_PRD_PNG$'],
-/* Galaxy Watch Active */ ['SM-R500','https://images.samsung.com/is/image/samsung/es-galaxy-watch-active-r500-sm-r500nzkaphe-frontblack-thumb-151268114?$PF_PRD_PNG$']
-];
-// Loop All devices
-for (var a=0; a<pznMob.length; a++){
-for (var o=0; o<pznMob[a].length; o++){
-if (product[0].id.indexOf(pznMob[a][o])>-1){
-var pznc = pznMob[a].length-1;
-console.log(pznMob[a][pznc]);
-$('.ca-product-img').attr('src',pznMob[a][pznc]);
-$('.ca-product-img').attr('data-src-mobile',pznMob[a][pznc]);
-$('.ca-product-img').attr('data-src-pc',pznMob[a][pznc]);
-};
-};
-};
+        // replace error Images --------------------------------------
+        var pznMob = [
+        /* Z Flip*/ ['SM-F700','https://images.samsung.com/is/image/samsung/uk/galaxy-s20/gallery/uk-galaxy-z-flip-sm-f700-sm-f700fzkdbtu-frontmirrorblack-209048059?$PD_GALLERY_PNG$'],
+        /* Fold */ ['SM-F900','https://images.samsung.com/is/image/samsung/uk-galaxy-fold-sm-f907-5g-sm-f907bzkabtu-frontblack-thumb-183263244?$PF_PRD_PNG$'],
+        /*------------------------------------------------------------------*/
+        /* S20 */ ['SM-G981','SM-G980','https://images.samsung.com/is/image/samsung/uk-galaxy-s20-sm-g981-5g-sm-g981bzadeua-frontcosmicgray-thumb-214107767?$PF_PRD_PNG$'],
+        /* S20 Plus */ ['SM-G986','SM-G985','https://images.samsung.com/is/image/samsung/uk-galaxy-s20-plus-sm-g986-5g-sm-g986bzadeua-frontcosmicgray-thumb-214107393?$PF_PRD_PNG$'],
+        /* S20 Ultra*/ ['SM-G988','https://images.samsung.com/is/image/samsung/uk-galaxy-s20-ultra-sm-g988-5g-sm-g988bzkdeua-frontcosmicblack-thumb-214107294?$PF_PRD_PNG$'],
+        /*------------------------------------------------------------------*/
+        /* S10 Lite */ ['SM-G770','https://images.samsung.com/is/image/samsung/uk-galaxy-s10-lite-sm-g770-sm-g770fzkdbtu-frontprismblack-thumb-206094093?$PF_PRD_PNG$'],
+        /* S10 5G */ ['SM-G977','https://images.samsung.com/is/image/samsung/uk-galaxy-s10-sm-g977-5g-sm-g977bzaabtu-thumb-185487623?$PF_PRD_PNG$'],
+        /* S10 Plus */ ['SM-G975','https://images.samsung.com/is/image/samsung/uk-galaxy-s10plus-sm-g975-hybrid-sim-sm-g975fzgdbtu-frontprismgreen-thumb-146852126?$PF_PRD_PNG$'],
+        /* S10 */ ['SM-G973','https://images.samsung.com/is/image/samsung/uk-galaxy-s10-sm-g973-hybrid-sim-sm-g973fzbdbtu-frontprismblue-thumb-156199775?$PF_PRD_PNG$'],
+        /* S10E */ ['SM-G970','https://images.samsung.com/is/image/samsung/uk-galaxy-s10e-sm-g970-hybrid-sim-sm-g970fzsdbtu-frontprismsilver-thumb-188191346?$PF_PRD_PNG$'],
+        /*------------------------------------------------------------------*/
+        /* Note10 Lite */ ['SM-N770','https://images.samsung.com/is/image/samsung/uk-galaxy-note10-lite-sm-n770-sm-n770fzkdbtu-frontaurablack-thumb-206093831?$PF_PRD_PNG$'],
+        /* Note10 Plus 5G */ ['SM-N976','https://images.samsung.com/is/image/samsung/uk-galaxy-note10-plus-256gb-sm-n976-5g-sm-n976bzsabtu-frontauraglow-thumb-177815230?$PF_PRD_PNG$'],
+        /* Note10 Plus */ ['SM-N975','https://images.samsung.com/is/image/samsung/uk-galaxy-note10-plus-sm-n975-sm-n975fzsdbtu-frontauraglow-thumb-177815055?$PF_PRD_PNG$'],
+        /* Note10 */ ['SM-N970','https://images.samsung.com/is/image/samsung/uk-galaxy-note10-sm-n970-sm-n970fzkdbtu-frontaurablack-thumb-177814907?$PF_PRD_PNG$'],
+        /* Note9 */ ['SM-N960','https://images.samsung.com/is/image/samsung/uk-galaxy-note9-sm-n960-single-sim-sm-n960fzkabtu-frontblack-thumb-117163147?$PF_PRD_PNG$'],
+        /*------------------------------------------------------------------*/
+        /* A90 5G */ ['SM-A908','https://images.samsung.com/is/image/samsung/uk-galaxy-a90-5g-sm-a908bzkabtu-black-thumb-224635430?$PF_PRD_PNG$'],
+        /* A80 */ ['SM-A805','https://images.samsung.com/is/image/samsung/uk-galaxy-a80-sm-a805fzkdbtu-frontblack-thumb-181284726?$PF_PRD_PNG$'],
+        /* A71 */ ['SM-A715','https://images.samsung.com/is/image/samsung/uk-galaxy-a71-sm-a715fzkubtu-front-thumb-206094634?$PF_PRD_PNG$'],
+        /* A70 */ ['SM-A705','https://images.samsung.com/is/image/samsung/fi-galaxy-a705-a70-sm-a705fzkunee-frontblack-thumb-166200275?$PF_PRD_PNG$'],
+        /* A51 */ ['SM-A515','https://images.samsung.com/is/image/samsung/uk-galaxy-a51-sm-a515fzkveua-front-thumb-206094240?$PF_PRD_PNG$'],
+        /* A50 */ ['SM-A505','https://images.samsung.com/is/image/samsung/fi-galaxy-a505-a50-sm-a505fzksnee-frontblack-thumb-166002658?$PF_PRD_PNG$'],
+        /* A41 */ ['SM-A415','https://images.samsung.com/is/image/samsung/uk-galaxy-a41-sm-a415fzkdeua-front-246140763?$PD_GALLERY_PNG$'],
+        /* A40 */ ['SM-A405','https://images.samsung.com/is/image/samsung/uk-galaxy-a40-sm-a405fzkdbtu-frontblack-thumb-181275569?$PF_PRD_PNG$'],
+        /* A30S */ ['SM-A307','https://images.samsung.com/is/image/samsung/es-galaxy-a30s-sm-a307fzkvphe-front-thumb-182236947?$PF_PRD_PNG$'],
+        /* A30 */ ['SM-A305','https://images.samsung.com/is/image/samsung/levant-galaxy-a30-a305-sm-a305fzkfmid-frontblack-151867641?$PD_GALLERY_L_JPG$'],
+        /* A20E */ ['SM-A202','https://images.samsung.com/is/image/samsung/uk-galaxy-a20e-sm-a202fzkdbtu-frontblack-thumb-181275712?$PF_PRD_PNG$'],
+        /* A10 */ ['SM-A105','https://images.samsung.com/is/image/samsung/it-galaxy-a10-a105-sm-a105fzbuitv-frontblue-thumb-196116138?$PF_PRD_PNG$'],
+        /* A6 */ ['SM-A600','https://images.samsung.com/is/image/samsung/it-galaxy-a6-a600fd-sm-a600fzknitv-frontblack-thumb-104810266?$PF_PRD_PNG$'],
+        /*------------------------------------------------------------------*/
+        /* M21 */ ['SM-M215','https://images.samsung.com/is/image/samsung/nl-galaxy-m21-sm-m215fzkuphn-frontblack-232410414?$PD_GALLERY_PNG$'],
+        /* M20 */ ['SM-M205','https://images.samsung.com/is/image/samsung/it-galalxy-m20-m205-sm-m205fdawitv-frontebonyblack-thumb-151123424?$PF_PRD_PNG$'],
+        /* M30 */ ['SM-M307','https://images.samsung.com/is/image/samsung/it-galaxy-m30s-m307-sm-m307fzkuitv-frontblack-thumb-184095908?$PF_PRD_PNG$'],
+        /*------------------------------------------------------------------*/
+        /* Tab S6 LTE 10.5*/ ['SM-T865','https://images.samsung.com/is/image/samsung/uk-galaxy-tab-s6-4g-128gb-sm-t865nzaabtu-frontgray-thumb-177241292?$PF_PRD_PNG$'],
+        /* Tab S6 WIFI 10.5*/ ['SM-T860','https://images.samsung.com/is/image/samsung/uk-galaxy-tab-s6-128gb-sm-t860nzaabtu-frontgray-thumb-177241138?$PF_PRD_PNG$'],
+        /* Tab S6 Lite LTE 10.4*/ ['SM-P615','https://images.samsung.com/is/image/samsung/uk-galaxy-tab-s6-lite-4g-sm-p615nzaabtu-frontgray-thumb-229910808?$PF_PRD_PNG$'],
+        /* Tab S6 Lite WIFI 10.4*/ ['SM-P610','https://images.samsung.com/is/image/samsung/uk-galaxy-tab-s6-lite-sm-p610nzbabtu-frontblue-thumb-229592181?$PF_PRD_PNG$'],
+        /* Tab S5E LTE 10.5*/ ['SM-T725','https://images.samsung.com/is/image/samsung/uk-galaxy-tabs5e-4g-sm-t725nzkabtu-frontblack-thumb-144907370?$PF_PRD_PNG$'],
+        /* Tab S5E WIFI 10.5*/ ['SM-T720','https://images.samsung.com/is/image/samsung/uk-galaxy-tabs5e-sm-t720nzkabtu-frontblack-thumb-144907277?$PF_PRD_PNG$'],
+        /* Tab S4 WIFI 10.5*/ ['SM-T835','https://images.samsung.com/is/image/samsung/uk-galaxy-tabs4-t835-sm-t835nzkabtu-black-thumb-Black-118863026?$PF_PRD_PNG$'],
+        /* Tab S4 LTE 10.5*/ ['SM-T830','https://images.samsung.com/is/image/samsung/uk-galaxy-tabs4-t830-sm-t830nzkabtu-black-thumb-Black-118858351?$PF_PRD_PNG$'],
+        /* Tab A WIFI 8*/ ['SM-T290','https://images.samsung.com/is/image/samsung/it-galaxy-tab-a-t290-sm-t290nzkaitv-frontblack-thumb-175821163?$PF_PRD_PNG$'],
+        /* Tab A LTE 8*/ ['SM-T295','https://images.samsung.com/is/image/samsung/it-galaxy-taba-t295-sm-t295nzkaitv-frontblack-thumb-186507205?$PF_PRD_PNG$'],
+        /* Tab A WIFI 10.5*/ ['SM-T590','https://images.samsung.com/is/image/samsung/it-galaxy-taba-t590-sm-t590nzkaitv-frontblack-thumb-193154350?$PF_PRD_PNG$'],
+        /* Tab A LTE 10.5*/ ['SM-T595','https://images.samsung.com/is/image/samsung/it-galaxy-taba-t595-sm-t595nzkaitv-frontblack-thumb-193164324?$PF_PRD_PNG$'],
+        /* Tab A WIFI 10.1*/ ['SM-T510','https://images.samsung.com/is/image/samsung/it-galaxy-tab-a-t510-sm-t510nzkditv-frontblack-thumb-171730530?$PF_PRD_PNG$'],
+        /* Tab A LTE 10.1*/ ['SM-T515','https://images.samsung.com/is/image/samsung/it-galaxy-tab-a-t515-sm-t515nzkditv-frontblack-thumb-196085935?$PF_PRD_PNG$'],
+        /* Tab Active2 LTE 9.7*/ ['SM-T819','SM-T813','https://images.samsung.com/is/image/samsung/es-galaxy-tab-s2-9-7-t819-sm-t819nzkephe-000000001-front-black-thumb?$PF_PRD_PNG$'],
+        /*------------------------------------------------------------------*/
+        /* GW Active2 BT 40Black */ ['SM-R830','https://images.samsung.com/is/image/samsung/es-galaxy-watch-active-r830nz-sm-r830nzkaphe-frontblack-thumb-216635017?$PF_PRD_PNG$'],
+        /* GW Active2 BT 40Silver */ ['SM-R835','https://images.samsung.com/is/image/samsung/es-galaxy-watch-active2-r835fs-sm-r835fssaphe-frontsilver-thumb-227140240?$PF_PRD_PNG$'],
+        /* GW Active2 BT 44Black */ ['SM-R820','https://images.samsung.com/is/image/samsung/es-galaxy-watch-active2-r820ns-sm-r820nskaphe-frontblack-thumb-214904920?$PF_PRD_PNG$'],
+        /* Galaxy Buds Plus */ ['SM-R175','https://images.samsung.com/is/image/samsung/nl/galaxy-s20/gallery/nl-galaxy-budsplus-sm-r175nzwaeu2-frontwhite-209031341?$PD_GALLERY_PNG$'],
+        /* Galaxy Buds */ ['SM-R170','https://images.samsung.com/is/image/samsung/es-galaxy-buds-r170-sm-r170nzkaphe-frontblack-thumb-145993846?$PF_PRD_PNG$'],
+        /* Galaxy Fit */ ['SM-R370','https://images.samsung.com/is/image/samsung/es-galaxy-fit-sm-r370nzkaphe-frontblack-thumb-167504925?$PF_PRD_PNG$'],
+        /* Galaxy Fit e */ ['SM-R375','https://images.samsung.com/is/image/samsung/es-galaxy-fite-sm-r375nzkaphe-frontblack-thumb-167568895?$PF_PRD_PNG$'],
+        /* Galaxy Watch 42Black */ ['SM-R815','https://images.samsung.com/is/image/samsung/es-galaxy-watch-r815-sm-r815fzkaamo-frontblack-thumb-115084975?$PF_PRD_PNG$'],
+        /* Galaxy Watch 46mm */ ['SM-R800','https://images.samsung.com/is/image/samsung/nl-galaxy-watch-r800-sm-r800nzsaphn-frontsilver-111729415?$PD_GALLERY_PNG$'],
+        /* Galaxy Watch 46 */ ['SM-R805','https://images.samsung.com/is/image/samsung/es-galaxy-watch-r805-sm-r805fzsaphe-frontsilver-thumb-142665942?$PF_PRD_PNG$'],
+        /* Galaxy Watch 42 */ ['SM-R810','https://images.samsung.com/is/image/samsung/es-galaxy-watch-r810-sm-r810nzkaphe-frontblack-thumb-111698263?$PF_PRD_PNG$'],
+        /* Gear VR */ ['SM-R325','https://images.samsung.com/is/image/samsung/es-gear-vr-sm-r324-sm-r325nzvcphe-frontblack-thumb-119928670?$PF_PRD_PNG$'],
+        /* Gear Fit2 Pro */ ['SM-R365','https://images.samsung.com/is/image/samsung/es-gear-fit2-pro-l-sm-r365-sm-r365nzkaphe-frontblack-thumb-73002430?$PF_PRD_PNG$'],
+        /* Galaxy Watch Active */ ['SM-R500','https://images.samsung.com/is/image/samsung/es-galaxy-watch-active-r500-sm-r500nzkaphe-frontblack-thumb-151268114?$PF_PRD_PNG$']
+        ];
+        // Loop All devices
+        for (var a=0; a<pznMob.length; a++){
+        for (var o=0; o<pznMob[a].length; o++){
+        if (product[0].id.indexOf(pznMob[a][o])>-1){
+        var pznc = pznMob[a].length-1;
+        console.log(pznMob[a][pznc]);
+        $('.ca-product-img').attr('src',pznMob[a][pznc]);
+        $('.ca-product-img').attr('data-src-mobile',pznMob[a][pznc]);
+        $('.ca-product-img').attr('data-src-pc',pznMob[a][pznc]);
+        };
+        };
+        };
 
-} else {
-$('.ca-product-img').attr('src',ptargetThumbnail);
-$('.ca-product-img').attr('data-src-mobile',ptargetThumbnail);
-$('.ca-product-img').attr('data-src-pc',ptargetThumbnail);
-};
-};
+        } else {
+        $('.ca-product-img').attr('src',ptargetThumbnail);
+        $('.ca-product-img').attr('data-src-mobile',ptargetThumbnail);
+        $('.ca-product-img').attr('data-src-pc',ptargetThumbnail);
+        };
+        };
 
-/**** Check if jQuery exists ****/
-var checkjQuery = setInterval(function() {
-if (window.$){
-clearInterval(checkjQuery); //clear interval (Always clear your timers/intervals when the task has been completed)
-allForOne(); //load main function
-}
-}, 100);
-}
+        /**** Check if jQuery exists ****/
+        var checkjQuery = setInterval(function() {
+        if (window.$){
+        clearInterval(checkjQuery); //clear interval (Always clear your timers/intervals when the task has been completed)
+        allForOne(); //load main function
+        }
+        }, 100);
+        }
 
-function mobile(){
-jQuery(".ca-container .ca-review img").prependTo(".ca-review");
-}
+        function mobile(){
+        jQuery(".ca-container .ca-review img").prependTo(".ca-review");
+        }
 
-function desktop(){
-jQuery(".ca-container .ca-review img").insertAfter(".ca-review-txt");
-}
-<` + `/script>`;
+        function desktop(){
+        jQuery(".ca-container .ca-review img").insertAfter(".ca-review-txt");
+        }
+        <` + `/script>`;
     jQuery(".code-block").val(s + '\n' + c);
-}
+};
