@@ -1,0 +1,878 @@
+/* tracking & Links Notifications on Hover */
+
+.tooltip .tooltiptext,
+.addlinks .tooltiptext,
+.linktip .tooltiptext,
+.linktip2 .tooltiptext,
+.linktip3 .tooltiptext {
+    display: none !important;
+    width: auto !important;
+    background-color: black !important;
+    color: #fff !important;
+    text-align: center !important;
+    border-radius: 6px !important;
+    padding: 5px !important;
+    font-size: 12px !important;
+    text-transform: unset !important;
+    font-family: "SamsungOne", arial !important;
+    font-weight: bold !important;
+    /* Position the tooltip */
+    position: absolute !important;
+    z-index: 999 !important;
+}
+
+.tooltip:hover .tooltiptext,
+.addlinks:hover .tooltiptext,
+.linktip:hover .tooltiptext,
+.linktip2:hover .tooltiptext,
+.linktip3:hover .tooltiptext {
+    display: block !important;
+    cursor: pointer;
+}
+
+
+/* Lightbox for Edit Links */
+
+.editLink-container,
+.tracking-container,
+.link-container {
+    display: none;
+}
+
+.editLink-container .shade,
+.tracking-container .shade,
+.link-container .shade {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.4;
+    z-index: 99;
+    display: block;
+    position: absolute;
+}
+
+.editLink-container .editLink-wrapper,
+.tracking-container .editLink-wrapper,
+.link-container .editLink-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    z-index: 999;
+    margin-top: -285.5px;
+    margin-left: -156px;
+    position: fixed;
+}
+
+.editLink-container .top,
+.editLink-container .bottom,
+.editLink-container .tracking-top,
+.editLink-container .tracking-bottom,
+.tracking-container .top,
+.tracking-container .bottom,
+.tracking-container .tracking-top,
+.tracking-container .tracking-bottom,
+.link-container .top,
+.link-container .bottom,
+.link-container .tracking-top,
+.link-container .tracking-bottom {
+    position: relative;
+}
+
+.editLink-container .tracking-top,
+.tracking-container .tracking-top,
+.link-container .tracking-top {
+    margin-top: 30px;
+}
+
+.editLink-container .main-txt,
+.tracking-container .main-txt,
+.link-container .main-txt {
+    vertical-align: text-top;
+    color: #4b4b4b;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    font-weight: 300;
+    position: relative;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.editLink-container .cancel-btn,
+.tracking-container .cancel-btn,
+.link-container .cancel-btn {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.editLink-container .save-btn,
+.tracking-container .save-btn,
+.link-container .save-btn {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.editLink-container .line,
+.tracking-container .line,
+.link-container .line {
+    display: block;
+    margin: 10px 0;
+    bottom: 0;
+    left: .9375rem;
+    right: .9375rem;
+    height: .125rem;
+    background: rgba(0, 0, 0, .05);
+}
+
+.editLink-container .url-txt,
+.editLink-container .tracking-main-txt,
+.editLink-container .tracking-event-input,
+.editLink-container .tracking-evar-input,
+.editLink-container .tracking-evar-desc,
+.tracking-container .url-txt,
+.tracking-container .tracking-main-txt,
+.tracking-container .tracking-event-input,
+.tracking-container .tracking-evar-input,
+.tracking-container .tracking-evar-desc,
+.link-container .url-txt,
+.link-container .tracking-main-txt,
+.link-container .tracking-event-input,
+.link-container .tracking-evar-input,
+.link-container .tracking-evar-desc {
+    font-family: adobe-clean, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: .8125rem;
+    line-height: 1.0625rem;
+    display: block;
+    position: relative;
+}
+
+.editLink-container input,
+.tracking-container input,
+.link-container input {
+    width: 80%;
+    margin-top: 10px;
+    display: block;
+}
+
+.editLink-container .url-txt,
+.editLink-container .tracking-evar-input,
+.editLink-container .tracking-evar-desc,
+.tracking-container .url-txt,
+.tracking-container .tracking-evar-input,
+.tracking-container .tracking-evar-desc,
+.link-container .url-txt,
+.link-container .tracking-evar-input,
+.link-container .tracking-evar-desc {
+    margin-top: 10px;
+}
+
+.editLink-container button,
+.tracking-container button,
+.link-container button {
+    cursor: pointer;
+}
+
+
+/* just for this test */
+
+.close_cta {
+    width: 2.9055vw;
+    height: 2.4213vw;
+    position: absolute;
+    right: 0;
+    z-index: 9999;
+}
+
+.review-tip {
+    position: absolute;
+    width: 9vw;
+    height: 2.3292vw;
+    z-index: 9999;
+    top: 5.4vw;
+}
+
+.review-tip-finance {
+    position: absolute;
+    width: 3.0266vw;
+    height: 3.0266vw;
+    z-index: 9999;
+    top: 8.7vw;
+    left: 17.5vw;
+}
+
+.review-tip-delivery {
+    position: absolute;
+    width: 3.0266vw;
+    height: 3.0266vw;
+    z-index: 9999;
+    top: 8.7vw;
+    left: 1.5vw;
+}
+
+.review-tip-returns {
+    position: absolute;
+    width: 3.0266vw;
+    height: 3.0266vw;
+    z-index: 9999;
+    top: 8.7vw;
+    left: 10vw;
+}
+
+
+/* Confluence Page HTML/Styling Starts here */
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.cg-container .cg-title-logo img {
+    max-width: 150px;
+}
+
+.cg-container {
+    /* max-width: 1440px; */
+    margin: 0 auto;
+    background-color: #f7f7f7;
+    font-family: "SamsungOne", arial;
+    padding: 100px 15px;
+}
+
+.cg-container .cg-title-logo {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.cg-container .cg-content-text {
+    text-align: center;
+}
+
+.cg-container .cg-content-text-title {
+    font-weight: bold;
+    font-size: 52px;
+    margin-bottom: 10px;
+    font-family: "SamsungSharpSans", arial;
+}
+
+.cg-container .cg-content-text-desc {
+    font-size: 16px;
+    line-height: 28px;
+    margin-bottom: 10px;
+}
+
+.cg-container .cg-content-text-disc {
+    font-size: 13px;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+
+.cg-container .cg-content-marketcode {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.cg-container .cg-content-ctas {
+    text-align: center;
+}
+
+.cg-container .cg-content-ctas-generate {
+    margin: 10px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.cg-container .sub.generate-cta {
+    font-size: 12px;
+    border-radius: 45px;
+    padding: 12px 38px 13px;
+    background-color: #1428a0;
+    border-color: #1428a0;
+    color: #fff;
+    border: 1px solid;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    cursor: pointer;
+}
+
+.cg-container .cg-content-ctas-copy {
+    margin: 10px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.cg-container .sub.copy-cta {
+    font-size: 12px;
+    border-radius: 45px;
+    padding: 12px 38px 13px;
+    background-color: transparent;
+    border-color: #555;
+    color: #555;
+    border: 1px solid;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    cursor: pointer;
+}
+
+.cg-container .code-block-container {
+    text-align: center;
+}
+
+.cg-container .code-block {
+    width: 70%;
+    height: 500px;
+    margin: 20px;
+    font-size: 12px;
+}
+
+.cg-container .devicetype-header,
+.cg-container .cta-change {
+    margin: 20px 0;
+    display: inline-block;
+}
+
+.cg-content-text-steps {
+    text-align: left;
+    margin: 0 auto;
+    width: 700px;
+}
+
+
+/* Confluence style changes */
+
+body {
+    line-height: unset !important;
+}
+
+.ca-container h2 {
+    margin: unset !important;
+    letter-spacing: unset !important;
+    text-transform: unset !important;
+    line-height: unset !important;
+}
+
+.ca-container button {
+    padding: unset !important;
+    border: unset !important;
+    cursor: pointer !important;
+}
+
+#footer {
+    margin-left: 0 !important;
+}
+
+.ca-container .ca-review-txt,
+.ca-container .ca-product-txt,
+.ca-container .ca-product-price {
+    font-weight: bold !important;
+}
+
+.removed {
+    overflow: hidden !important;
+    max-height: 0 !important;
+    transition: max-height 0.5s ease-in-out !important;
+}
+
+.ca-container {
+    text-align: left;
+    box-sizing: border-box;
+    border: 1px solid #E8E8E8;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 28px 0 rgba(0, 0, 0, 0.06);
+    position: relative;
+}
+
+.ca-container .ca-wrap-reviews {
+    vertical-align: top;
+    display: inline-block;
+    /*width: 45%;*/
+}
+
+.ca-container .ca-review {
+    text-align: left;
+}
+
+.ca-container .ca-review-txt {
+    color: #2E2C2B;
+    font-family: "SamsungSharpSans", arial;
+    font-weight: bold;
+    letter-spacing: -0.17px;
+}
+
+.ca-container .ca-wrap-reviews img.review-logo {
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ca-container .ca-vertical-line {
+    box-sizing: border-box;
+    width: 3px;
+    border: 1px solid #EEEEEE;
+    vertical-align: middle;
+}
+
+.ca-container .ca-review-desc {
+    color: #2E2C2B;
+    font-family: "SamsungOne", arial;
+    letter-spacing: -0.23px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ca-container .ca-line {
+    display: block;
+    height: 1px;
+    background-color: rgba(46, 44, 43, 0.1);
+}
+
+.ca-container .ca-icons {
+    display: inline-block;
+}
+
+.ca-container .ca-icon-delivery {
+    display: inline-block;
+    width: auto;
+}
+
+.ca-container .ca-icon-delivery img {
+    display: inline-block;
+    /*width: 25%;*/
+    vertical-align: middle;
+}
+
+.ca-container .ca-icon-delivery h2 {
+    display: inline-block;
+    color: #000000;
+    font-family: "SamsungOne", arial;
+    vertical-align: middle;
+    font-weight: 500;
+}
+
+.ca-container .ca-icon-returns {
+    width: auto;
+    display: inline-block;
+}
+
+.ca-container .ca-icon-returns img {
+    display: inline-block;
+    /*width: 25%;*/
+    height: auto;
+    vertical-align: middle;
+}
+
+.ca-container .ca-icon-returns h2 {
+    display: inline-block;
+    color: #000000;
+    font-family: "SamsungOne", arial;
+    vertical-align: middle;
+    font-weight: 500;
+}
+
+.ca-container .ca-icon-finance {
+    display: inline-block;
+    width: auto;
+}
+
+.ca-container .ca-icon-finance img {
+    display: inline-block;
+    /*width: 21%;*/
+    height: auto;
+    vertical-align: middle;
+}
+
+.ca-container .ca-icon-finance h2 {
+    display: inline-block;
+    color: #000000;
+    font-family: "SamsungOne", arial;
+    vertical-align: middle;
+    font-weight: 500;
+}
+
+.ca-container .ca-wrap-product {
+    display: inline-block;
+    /*width: 55%;*/
+    vertical-align: top;
+}
+
+.ca-container .ca-wrap-product .ca-product-img {
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.ca-container .ca-product {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.ca-container .ca-product-info {
+    display: inline-block;
+    vertical-align: middle;
+    /*width: 45%;*/
+}
+
+.ca-container .ca-product-info h2.ca-product-txt {
+    color: #000000;
+    font-family: "SamsungSharpSans", arial;
+    font-weight: bold;
+}
+
+.ca-container .ca-product-info h2.ca-product-price {
+    color: #000000;
+    font-family: "SamsungOne", arial;
+}
+
+.ca-container .ca-product-cta-wrap {
+    border-radius: 100px;
+    background-color: #1428A0;
+    display: inline-block;
+    vertical-align: middle;
+    width: auto;
+    max-width: 265px;
+}
+
+.ca-container .ca-product-cta-wrap a {
+    color: #FFFFFF;
+    font-family: "SamsungOne", arial;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 800;
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.ca-container .ca-product-cta-wrap:hover {
+    cursor: pointer;
+    background-color: #0d1752;
+}
+
+.ca-container .ca-close {
+    position: absolute;
+    z-index: 999;
+}
+
+.ca-container .ca-close:hover {
+    cursor: pointer;
+}
+
+@media only screen and (min-width:1200px) {
+    /* 1652 */
+    .ca-container {
+        max-width: 66.898305VW;
+        margin: 1.6343825665859564VW auto;
+        max-height: 36.31961259079903VW;
+    }
+    .ca-container .ca-wrap {
+        margin: 1.694915254237288VW 2.05569VW 1.0895883777239708VW 2.05569VW;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .ca-container .ca-review-txt {
+        font-size: 1.431719128329298VW;
+        line-height: 1.6343825665859564VW;
+        margin-bottom: 0.9079903147699757VW;
+    }
+    .ca-container .ca-wrap-reviews img.review-logo {
+        max-height: 2.4213075060532687VW;
+    }
+    .ca-container .ca-vertical-line {
+        height: 1.331719128329298VW;
+        margin: 0 0.847457627118644VW 0 1.6343825665859564VW;
+    }
+    .ca-container .ca-review-desc {
+        font-size: 0.9685230024213075VW;
+        line-height: 1.9975786924939467VW;
+    }
+    .ca-container .ca-line {
+        width: 29.292978VW;
+        margin: 0.6053268765133172VW 0 0.847457627118644VW;
+    }
+    .ca-container .ca-icon-delivery,
+    .ca-container .ca-icon-returns {
+        margin-right: 0.6053268765133172VW;
+    }
+    .ca-container .ca-icon-delivery img,
+    .ca-container .ca-icon-returns img,
+    .ca-container .ca-icon-finance img {
+        width: 2.4213075060532687VW;
+    }
+    .ca-container .ca-icon-delivery h2 {
+        font-size: 0.847457627118644VW;
+        line-height: 1.1501210653753027VW;
+    }
+    .ca-container .ca-icon-returns h2 {
+        font-size: 0.847457627118644VW;
+        line-height: 1.1501210653753027VW;
+    }
+    .ca-container .ca-icon-finance h2 {
+        font-size: 0.847457627118644VW;
+        line-height: 1.1501210653753027VW;
+    }
+    .ca-container .ca-wrap-product .ca-product-img {
+        margin-left: 0;
+    }
+    .ca-container .ca-product {
+        margin: 0;
+        width: 30.476998VW;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .ca-container .ca-product-info h2.ca-product-txt {
+        font-size: 1.4527845036319613VW;
+        line-height: 1.694915254237288VW !important;
+        margin-bottom: 0.847457627118644VW !important;
+    }
+    .ca-container .ca-product-info img {
+        width: 6.125VW;
+    }
+    .ca-container .ca-product-info h2.ca-product-price {
+        font-size: 1.331719128329298VW;
+        line-height: 1.694915254237288VW !important;
+        margin-top: 0.847457627118644VW !important;
+    }
+    .ca-container .ca-product-cta-wrap {
+        height: 2.663438256658596VW;
+        margin-left: 1vw;
+    }
+    .ca-container .ca-product-cta-wrap a {
+        font-size: 0.7263922518159807VW;
+        line-height: 1.4527845036319613VW;
+        padding: 0.6053268765133172VW 0.9079vw;
+    }
+    .ca-container .ca-close {
+        width: 1.8159806295399514VW;
+        top: 0.3026634382566586VW;
+        right: 0.3026634382566586VW;
+    }
+    .ca-container .ca-wrap-reviews {
+        width: 35.874092VW;
+        /* 592.64 */
+    }
+    .ca-container .ca-wrap-product {
+        width: 37.846247VW;
+        /* 724.34 */
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .ca-container .ca-product-info {
+        width: 12.164649VW;
+        /* 234 */
+    }
+}
+
+@media only screen and (min-width:850px) and (max-width: 1199px) {
+    /* 2000 */
+    .ca-container {
+        max-width: 69.3VW;
+        margin: 1.35VW auto;
+        max-height: 30VW;
+    }
+    .ca-container .ca-wrap {
+        margin: 1.4000000000000001VW 1.35VW 0.8999999999999999VW 1.35VW;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .ca-container .ca-review-txt {
+        font-size: 1.0999999999999999VW;
+        line-height: 1.35VW;
+        margin-bottom: 0.75VW;
+    }
+    .ca-container .ca-wrap-reviews img.review-logo {
+        max-height: 1VW;
+    }
+    .ca-container .ca-vertical-line {
+        height: 1.0999999999999999VW;
+        margin: 0 0.7000000000000001VW 0 1.35VW;
+    }
+    .ca-container .ca-review-desc {
+        font-size: 0.8VW;
+        line-height: 1.6500000000000001VW;
+    }
+    .ca-container .ca-line {
+        width: 24.5VW;
+        margin: 0.5VW 0 0.7000000000000001VW;
+    }
+    .ca-container .ca-icon-delivery,
+    .ca-container .ca-icon-returns {
+        margin-right: 0.5VW;
+    }
+    .ca-container .ca-icon-delivery img,
+    .ca-container .ca-icon-returns img,
+    .ca-container .ca-icon-finance img {
+        width: 0.5VW;
+    }
+    .ca-container .ca-icon-delivery h2 {
+        font-size: 0.7000000000000001VW;
+        line-height: 0.95VW;
+    }
+    .ca-container .ca-icon-returns h2 {
+        font-size: 0.7000000000000001VW;
+        line-height: 0.95VW;
+    }
+    .ca-container .ca-icon-finance h2 {
+        font-size: 0.7000000000000001VW;
+        line-height: 0.95VW;
+    }
+    .ca-container .ca-wrap-product .ca-product-img {
+        margin-left: 0;
+    }
+    .ca-container .ca-product {
+        margin: 0;
+        width: 25.476998VW;
+    }
+    .ca-container .ca-product-info h2.ca-product-txt {
+        font-size: 1.2VW;
+        line-height: 1.4000000000000001VW !important;
+        margin-bottom: 0.7000000000000001VW !important;
+    }
+    .ca-container .ca-product-info img {
+        width: 4.8500000000000005VW;
+    }
+    .ca-container .ca-product-info h2.ca-product-price {
+        font-size: 1.0999999999999999VW;
+        line-height: 1.4000000000000001VW !important;
+        margin-top: 0.7000000000000001VW !important;
+    }
+    .ca-container .ca-product-cta-wrap {
+        height: 2.1999999999999997VW;
+        margin-left: 0.2vw;
+    }
+    .ca-container .ca-product-cta-wrap a {
+        font-size: 0.6VW;
+        line-height: 2.2VW;
+        padding: 0.025VW 0.75VW;
+    }
+    .ca-container .ca-close {
+        width: 1.5VW;
+        top: 0.25VW;
+        right: 0.25VW;
+    }
+    .ca-container .ca-wrap-reviews {
+        width: 28.874092VW;
+        /* 592.64 */
+    }
+    .ca-container .ca-wrap-product {
+        width: 35.846247VW;
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: center;
+        /* 724.34 */
+    }
+    .ca-container .ca-product-info {
+        width: 11.700000000000001VW;
+        /* 234 */
+    }
+}
+
+@media only screen and (max-width:849px) {
+    /* 2652 */
+    .ca-container {
+        max-width: 52.26244343891403VW;
+        margin: 1.0180995475113122VW auto;
+        max-height: 22.624434389140273VW;
+    }
+    .ca-container .ca-wrap {
+        margin: 22.624434389140273VW 0 0.6787330316742082VW 2.526395173453997VW;
+    }
+    .ca-container .ca-review-txt {
+        font-size: 0.8295625942684767VW;
+        line-height: 1.0180995475113122VW;
+        margin-bottom: 0.5656108597285068VW;
+    }
+    .ca-container .ca-wrap-reviews img.review-logo {
+        max-height: 1.5082956259426847VW;
+    }
+    .ca-container .ca-vertical-line {
+        height: 0.8295625942684767VW;
+        margin: 0 0.5279034690799397VW 0 1.0180995475113122VW;
+    }
+    .ca-container .ca-review-desc {
+        font-size: 0.603318250377074VW;
+        line-height: 1.244343891402715VW;
+    }
+    .ca-container .ca-line {
+        width: 20.739064856711916VW;
+        margin: 0.3770739064856712VW 0 0.5279034690799397VW;
+    }
+    .ca-container .ca-icon-delivery,
+    .ca-container .ca-icon-returns {
+        margin-right: 0.3770739064856712VW;
+    }
+    .ca-container .ca-icon-delivery img,
+    .ca-container .ca-icon-returns img,
+    .ca-container .ca-icon-finance img {
+        width: 1.5082956259426847VW;
+    }
+    .ca-container .ca-icon-delivery h2 {
+        font-size: 0.5279034690799397VW;
+        line-height: 0.7164404223227753VW;
+    }
+    .ca-container .ca-icon-returns h2 {
+        font-size: 0.5279034690799397VW;
+        line-height: 0.7164404223227753VW;
+    }
+    .ca-container .ca-icon-finance h2 {
+        font-size: 0.5279034690799397VW;
+        line-height: 0.7164404223227753VW;
+    }
+    .ca-container .ca-wrap-product .ca-product-img {
+        margin-left: 0.7541478129713424VW;
+    }
+    .ca-container .ca-product {
+        margin: 0.3770739064856712VW 0 0 0.9803921568627451VW;
+        width: 19.607843137254903VW;
+    }
+    .ca-container .ca-product-info h2.ca-product-txt {
+        font-size: 0.904977375565611VW;
+        line-height: 1.0558069381598794VW !important;
+        margin-bottom: 0.5279034690799397VW !important;
+    }
+    .ca-container .ca-product-info img {
+        width: 3.657616892911011VW;
+    }
+    .ca-container .ca-product-info h2.ca-product-price {
+        font-size: 0.8295625942684767VW;
+        line-height: 1.0558069381598794VW !important;
+        margin-top: 0.5279034690799397VW !important;
+    }
+    .ca-container .ca-product-cta-wrap {
+        height: 1.6591251885369533VW;
+    }
+    .ca-container .ca-product-cta-wrap a {
+        font-size: 0.4524886877828055VW;
+        line-height: 0.904977375565611VW;
+        padding: 0.3770739064856712VW 15px;
+    }
+    .ca-container .ca-close {
+        width: 1.1312217194570136VW;
+        top: 0.1885369532428356VW;
+        right: 0.1885369532428356VW;
+    }
+    .ca-container .ca-wrap-reviews {
+        width: 22.346907993966816VW;
+        /* 592.64 */
+    }
+    .ca-container .ca-wrap-product {
+        width: 27.312971342383108VW;
+        /* 724.34 */
+    }
+    .ca-container .ca-product-info {
+        width: 8.823529411764707VW;
+        /* 234 */
+    }
+}
