@@ -1,1 +1,165 @@
-hello world
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="IM Cart Abandonment Generator" name="IM Cart Abandonment Generator">
+    <title>IM Cart Abandonment Generator</title>
+    <link href="css/style-main.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Lightbox for Tracking & Links -->
+    <div class="editLink-container">
+        <div class="shade"></div>
+        <div class="editLink-wrapper">
+            <div class="top">
+                <span class="main-txt">Enter Text</span>
+                <button class="cancel-btn">Cancel</button>
+                <button class="save-btn">Save</button>
+            </div>
+            <span class="line"></span>
+            <div class="bottom">
+                <span class="url-txt">Enter a link Text:</span>
+                <input class="get-text" placeholder="Complete Order">
+
+            </div>
+            <div class="tracking-top">
+                <span class="main-txt">Enter Tracking</span>
+            </div>
+            <span class="line"></span>
+            <div class="tracking-bottom">
+                <span class="tracking-event-input">Analytics event number:</span>
+                <input type="number" class="get-event" placeholder="48">
+                <span class="tracking-evar-input">Analytics eVar number:</span>
+                <input type="number" class="get-evar" placeholder="48">
+                <span class="tracking-evar-desc">Analytics eVar description:</span>
+                <input class="get-evar-desc" placeholder="home:cluster0_cartabandonment_banner_complete order">
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox for just Tracking -->
+    <div class="tracking-container">
+        <div class="shade"></div>
+        <div class="editLink-wrapper">
+            <div class="top">
+                <span class="main-txt">Enter Tracking</span>
+                <button class="cancel-btn">Cancel</button>
+                <button class="save-btn">Save</button>
+            </div>
+            <span class="line"></span>
+
+            <div class="tracking-bottom">
+                <span class="tracking-event-input">Analytics event number:</span>
+                <input type="number" class="get-event" placeholder="48">
+                <span class="tracking-evar-input">Analytics eVar number:</span>
+                <input type="number" class="get-evar" placeholder="48">
+                <span class="tracking-evar-desc">Analytics eVar description:</span>
+                <input class="get-evar-desc" placeholder="home:cluster0_cartabandonment_banner_close">
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox just for links -->
+    <div class="link-container">
+        <div class="shade"></div>
+        <div class="editLink-wrapper">
+            <div class="top">
+                <span class="main-txt">Enter Links</span>
+                <button class="cancel-btn">Cancel</button>
+                <button class="save-btn">Save</button>
+            </div>
+            <span class="line"></span>
+            <div class="bottom">
+                <span class="url-txt">Enter a link URL:</span>
+                <input class="get-link" placeholder="https://images.samsung.com/is/image/samsung/p5/uk/pzn/n10buypage_stickybanners/1280px-TechRadar_logo.png?$ORIGIN_PNG$">
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        var cName = "Galaxy S21 Ultra",
+            cPrice = "£1,149.00",
+            ctaName = "Complete Order";
+    </script>
+
+    <div class="cg-container">
+        <div class="cg-title-logo">
+            <img class="cg-img" src="https://cdn.samsung.com/etc/designs/smg/global/imgs/svg-logo.svg">
+        </div>
+        <div class="cg-content">
+            <div class="cg-content-text">
+                <h2 class="cg-content-text-title">IM Cart Abandoners<br>Code Generator</h2>
+                <p class="cg-content-text-desc">This page will allow you to generate code required for the IM Cart Abandonment test you are building on the home page.
+                    <p class="cg-content-text-steps">
+                        <strong>Step 1:</strong> Click on the banner text you would like to change and make the update directly.
+                        <br>
+                        <strong>Step 2:</strong> Hover over specfic elements and you can interact with them e.g. changing URL/image links/copy/add tracking.
+                        <br>
+                        <strong>Step 3:</strong> Once you are happy with your changes then just click generate.
+                        <br>
+                        <strong>Step 4:</strong> The code should appear in the empty box below, click copy to clipboard then press ctrl+v/cmd+v or right click and paste the code back into Adobe Target HTML content block.
+                        <br>
+                        <strong>Step 5:</strong> Repeat all steps again for every device type you would like to build this banner on.
+                    </p>
+                    <p class="cg-content-text-disc">*If nothing is entered then you will retrieve <strong>pre-set UK code</strong> otherwise please fill out the form below to get the correct values for your market.</p>
+                    <p class="cg-content-text-disc" style="font-weight: bold;color: red;">Please note this is just a visual representation of the banner for confluence, to see the final visual representation you will need to be QAing the final test build.</p>
+            </div>
+            <!-- Replace HTML code under here with your test HTML code -->
+            <!-- Desktop -->
+            <div class="test-code">
+                <div class="ca-container"><img class="ca-close" src="https://images.samsung.com/is/image/samsung/p5/uk/pzn/seuk214/close_black.png?$ORIGIN_PNG$">
+                    <div class="ca-wrap">
+                        <div class="ca-wrap-reviews">
+                            <div class="ca-review">
+                                <h2 class="ca-review-txt">Your Galaxy S21 Ultra is waiting!</h2>
+                                <p class="ca-review-desc">Pre-Order now and claim your free gift.</p>
+                            </div><span class="ca-line"></span>
+                            <div class="ca-icons">
+                                <div class="ca-icon-delivery"> <img src="https://images.samsung.com/is/image/samsung/p5/uk/pzn/seuk214/icon_Free_delivery.png?$ORIGIN_PNG$">
+                                    <h2 class="ca-delivery-txt">Free delivery</h2>
+                                </div>
+                                <div class="ca-icon-returns"> <img src="https://images.samsung.com/is/image/samsung/p5/uk/pzn/seuk214/icon_Free_returns.png?$ORIGIN_PNG$">
+                                    <h2 class="ca-delivery-txt">Free returns</h2>
+                                </div>
+                                <div class="ca-icon-finance"> <img src="https://images.samsung.com/is/image/samsung/p5/uk/pzn/seuk214/icon_Finance_options.png?$ORIGIN_PNG$">
+                                    <h2 class="ca-delivery-txt">Finance options available</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ca-wrap-product"> <img class="ca-product-img" src="https://images.samsung.com/is/image/samsung/p6pim/uk/galaxy-s21/gallery/uk-galaxy-s21-ultra-5g-g988-sm-g998bzkdeua-368887916?$PD_GALLERY_PNG$" data-src-pc="https://images.samsung.com/is/image/samsung/p6pim/uk/galaxy-s21/gallery/uk-galaxy-s21-ultra-5g-g988-sm-g998bzkdeua-368887916?$PD_GALLERY_PNG$"
+                                data-src-mobile="https://images.samsung.com/is/image/samsung/p6pim/uk/galaxy-s21/gallery/uk-galaxy-s21-ultra-5g-g988-sm-g998bzkdeua-368887916?$PD_GALLERY_PNG$">
+                            <div class="ca-product">
+                                <div class="ca-product-info">
+                                    <h2 class="ca-product-txt">Galaxy S21 Ultra</h2>
+                                    <h2 class="ca-product-price">£1,149.00</h2>
+                                </div>
+                                <div class="ca-product-cta-wrap"> <a class="ca-product-cta" href="https://www.samsung.com/uk/web/cart/">Complete Order</a> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Replace HTML code above here with your test HTML code -->
+            <div class="cg-content-ctas">
+                <div class="cg-content-ctas-generate">
+                    <button class="sub generate-cta" onclick="return submission();">Generate</button>
+                </div>
+                <div class="cg-content-ctas-copy">
+                    <button class="sub copy-cta" onclick="return copied();">Copy to Clipboard</button>
+                </div>
+            </div>
+            <div class="code-block-container">
+                <textarea rows="99999" cols="99999" class="code-block"></textarea>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/js-main.js"></script>
+</body>
+
+</html>
